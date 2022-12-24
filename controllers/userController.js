@@ -6,15 +6,18 @@ const {
   attachCookiesToResponse,
   checkPermissions,
 } = require('../utils');
+const { default: xPermittedCrossDomainPolicies } = require('helmet/dist/middlewares/x-permitted-cross-domain-policies');
 
 const getAllUsers = async (req, res) => {
   //console.log(req.user);
   //console.log('yes');
+  //console.log(req.params)
   const users = await User.find({ role: 'user' }).select('-password');
   res.status(StatusCodes.OK).json({ users });
 };
 
 const getSingleUser = async (req, res) => {
+  console.log(req.params)
   console.log(req.params.id);
   const user = await User.findOne({ _id:req.params.id}).select('-password');
   if (!user) {
