@@ -51,13 +51,14 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/orders', orderRouter);
+app.get('/',(req,res)=>{
+  res.send('<h1>E-commerce-api</h1>');  
+})
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-app.get('/',(req,res)=>{
-  res.send('<h1>E-commerce-api</h1>');  
-})
+
 
 const port = process.env.PORT || 5000;
 const start = async () => {
