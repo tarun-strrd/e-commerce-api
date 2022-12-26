@@ -52,7 +52,7 @@ app.use('/api/v1/products', productRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/orders', orderRouter);
 app.get('/',(req,res)=>{
-  res.send('<h1>E-commerce-api</h1>');  
+  res.send('<a href="https://documenter.getpostman.com/view/18447608/2s8Z6x1YbR">View-API-Documentation</a>');  
 })
 
 app.use(notFoundMiddleware);
